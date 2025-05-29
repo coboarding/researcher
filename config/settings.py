@@ -4,7 +4,8 @@ DevOps Researcher - Configuration Settings
 import os
 from typing import List, Dict, Any
 from pathlib import Path
-from pydantic import BaseSettings, validator
+from pydantic import validator
+from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -12,6 +13,10 @@ load_dotenv()
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables"""
+    model_config = {
+        'env_file': '.env',
+        'env_file_encoding': 'utf-8'
+    }
 
     # Application Info
     app_name: str = "DevOps Researcher"
@@ -109,12 +114,6 @@ class Settings(BaseSettings):
 
         for directory in directories:
             Path(directory).mkdir(parents=True, exist_ok=True)
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        case_sensitive = False
-
 
 # Global settings instance
 settings = Settings()

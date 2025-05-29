@@ -1178,4 +1178,6 @@ volumes:
             for i, item in enumerate(plan.items, 1):
                 f.write(f"### {i}. {item.description}\n")
                 f.write(f"- **File**: `{item.file_path}`\n")
-                f.write(f"
+                f.write(f"- **Priority**: {['High', 'Medium', 'Low'][item.priority-1] if item.priority <= 3 else 'Low'}\n")
+                f.write(f"- **Estimated Impact**: {item.estimated_impact.capitalize()}\n\n")
+                f.write(f"```\n{item.content}\n```\n\n")

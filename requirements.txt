@@ -4,6 +4,7 @@ python-dotenv>=1.0.0
 click>=8.1.0
 rich>=13.0.0
 pydantic>=2.5.0
+pydantic-settings>=2.1.0
 
 # Data processing
 pandas>=2.1.0
@@ -41,7 +42,7 @@ uvicorn>=0.24.0
 streamlit>=1.28.0
 
 # Optional: Email sending
-smtplib2>=0.2.0
+# smtplib is part of Python's standard library
 
 # Optional: LinkedIn API
 linkedin-api>=2.0.0
